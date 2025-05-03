@@ -26,12 +26,12 @@ public class Login {
         this.authenticationManager = authenticationManager;
     }
 
-    @GetMapping("/login")
+    /*@GetMapping("/login")
     public String login() {
         return "login";
-    }
+    }*/
 
-    @PostMapping("/login")
+   /* @PostMapping("/login")
     public String handleLogin(@RequestParam("username") String name, @RequestParam("password") String password, Model model) {
 
 
@@ -47,5 +47,14 @@ public class Login {
             model.addAttribute("error","Invalid username or password.Please try again");
             return "login";
         }
+    }*/
+
+    @GetMapping("/login")
+    public String login(@RequestParam(value="error",required = false) String error,Model model){
+
+        if(error != null){
+            model.addAttribute("error","Invalid username or password.Please try again");
+        }
+        return "login";
     }
 }
