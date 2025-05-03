@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<div class="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="nav-left">
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/customers}">Customers</a>
+        <a th:href="@{/payments}">Payments</a>
+        <a th:href="@{/rooms}">Rooms</a>
+    </div>
+    <div class="nav-right">
+        <span class="user-info">Welcome, <span th:text="${loggedInUser}"></span></span>
+        <a th:href="@{/login}" class="logout-button">Logout</a>
+    </div>
+</div>
+</body>
+</html>

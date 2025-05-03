@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PG Hostel Dashboard</title>
+  <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+
+<!--Navbar-->
+<div th:replace="navbar.html"></div>
+
+<!-- Dashboard Content -->
+<div class="dashboard-container">
+  <h1>PG Hostel Dashboard</h1>
+
+  <div class="dashboard-card">
+    <h2>Total Customers</h2>
+    <p th:text="${totalCustomers}"></p>
+  </div>
+  <div class="dashboard-card">
+    <h2>Pending Payments</h2>
+    <p th:text="${pendingPayments}"></p>
+  </div>
+  <div class="dashboard-card">
+    <h2>Occupied Rooms</h2>
+    <p th:text="${occupiedRooms}"></p>
+  </div>
+  <div class="dashboard-card">
+    <h2>Vacant Rooms</h2>
+    <p th:text="${vacantRooms}"></p>
+  </div>
+</div>
+
+</body>
+</html>

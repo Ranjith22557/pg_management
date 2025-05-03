@@ -1,0 +1,119 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light background color */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for Image and Form */
+.login-container {
+    display: flex;
+    width: 80%;  /* Adjust based on your needs */
+    max-width: 1200px;
+    height: 70%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Container - Left Side */
+.text-container {
+    flex: 1;
+    background-color: #ffebcd;  /* Soft background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 20px;
+    color: #555;
+}
+
+/* Form Container - Right Side */
+.form-container {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heading Style */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input Group */
+.input-group {
+    margin: 15px 0;
+    text-align: left;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Input Field Styling */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Error Message Styling */
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+p[style="color:red;"] {
+    color: red;
+}
+
+p[style="color:green;"] {
+    color: green;
+}

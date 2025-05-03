@@ -1,0 +1,31 @@
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+#roomNumber {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#roomNumber:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+#roomNumber option {
+    padding: 10px;
+}
+
+select.form-control {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+

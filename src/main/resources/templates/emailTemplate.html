@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<style>
+    .inline-text {
+        display: inline;
+    }
+</style>
+<body>
+<h1>Star Happiness</h1>
+    <h2>Dear, <span th:text="${customerName}"></span>!</h2>
+        <p>Welcome to our Family...!</p>
+        <p><strong>Customer Id:</strong></p> <span th:text="${customerId}" class="inline-text"></span>
+        <p><strong>Room Number:</strong></p> <span th:text="${roomNumber}" class="inline-text"></span>
+        <p><strong>Join Date:</strong></p> <span th:text="${joinDate}" class="inline-text"></span>
+        <p><strong>Total Amount:</strong></p> <span th:text="${totalAmount}" class="inline-text"></span>
+        <p><strong>Advance Amount:</strong>3000.00</p>
+        <p><strong>Paid Amount:</strong></p> <span th:text="${paidAmount}" class="inline-text"></span>
+        <p><strong>Pending Amount:</strong></p> <span th:text="${pendingAmount}" class="inline-text"></span><br><br>
+    <p>Thank you for choosing us..</p><br><br><br>
+    <p><strong>Gate Closing Time:</strong>11pm</p>
+    <p><strong>Contact:</strong>+91 8778180670</p><br><br><br>
+    <p>Best regards,<br/>Star Happiness</p>
+</body>
+</html>

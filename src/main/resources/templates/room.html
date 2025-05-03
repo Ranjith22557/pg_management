@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Room Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="container mt-5">
+<div th:replace="navbar.html"></div>
+
+<h2 class="mb-4 text-center">Room Management</h2>
+
+<!-- Add Room Form -->
+<div class="card p-4 shadow-sm mb-4">
+    <h5 class="mb-3">Add Room</h5>
+    <form action="/rooms/add" method="post">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <input type="text" name="roomNumber" class="form-control" placeholder="Room Number" required>
+            </div>
+            <div class="col-md-3">
+                <input type="number" name="capacity" class="form-control" placeholder="Total Capacity" required>
+            </div>
+            <div class="col-md-3">
+                <input type="number" name="occupiedSpots" class="form-control" placeholder="Currently Occupied" required>
+            </div>
+            <div class="col-md-3 d-grid">
+                <button type="submit" class="btn btn-success">Add Room</button>
+            </div>
+            <div th:if="${message}" class="alert alert-danger">
+                <span th:text="${message}"></span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Rooms Table -->
+<div class="card p-4 shadow-sm">
+    <h5 class="mb-3">Rooms List</h5>
+    <table class="table table-striped table-hover">
+        <thead class="table-primary">
+        <tr>
+            <th>Room Number</th>
+            <th>Total Capacity</th>
+            <th>Occupied</th>
+            <th>Vacant</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.roomNumber}"></td>
+            <td th:text="${room.capacity}"></td>
+            <td th:text="${room.occupiedSpots}"></td>
+            <td th:text="${room.capacity - room.occupiedSpots}"></td>
+            <td>
+                <span th:if="${room.occupiedSpots == room.capacity}" class="badge bg-danger">Fully Occupied</span>
+                <span th:if="${room.occupiedSpots > 0 && room.occupiedSpots < room.capacity}" class="badge bg-warning">Partially Occupied</span>
+                <span th:if="${room.occupiedSpots == 0}" class="badge bg-success">Vacant</span>
+            </td>
+            <td>
+                <!-- Edit Button (Triggers Modal) -->
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" th:attr="data-bs-target='#editRoomModal' + ${room.id}">Edit</button>
+
+                <!-- Delete Button -->
+                <a th:href="@{/rooms/delete/{id}(id=${room.id})}" class="btn btn-danger btn-sm">Delete</a>
+
+
+                <!-- Edit Room Modal -->
+                <div class="modal fade" th:id="'editRoomModal' + ${room.id}" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Room</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/rooms/update" method="post">
+                                    <input type="hidden" name="id" th:value="${room.id}">
+                                    <div class="mb-3">
+                                        <label class="form-label">Room Number</label>
+                                        <input type="text" name="roomNumber" class="form-control" th:value="${room.roomNumber}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Total Capacity</label>
+                                        <input type="number" name="capacity" class="form-control" th:value="${room.capacity}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Currently Occupied</label>
+                                        <input type="number" name="occupiedSpots" class="form-control" th:value="${room.occupiedSpots}" required>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">Update Room</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
